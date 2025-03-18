@@ -52,6 +52,9 @@ func HandlePage(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "templates/500.html")
 		return
 	}
+	
+	// Debug for when selecting an artsist card, to see the extra details being fetched
+	fmt.Println(fetchExtraDetails(artist))
 
 	// Render the template with the artist data
 	tmpl.Execute(w, artist)
